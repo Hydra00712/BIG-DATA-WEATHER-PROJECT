@@ -1,5 +1,5 @@
 
-@"
+
 # 🌤️ Real-Time Weather Monitoring Dashboard
 
 A production-grade real-time data pipeline for weather monitoring using Apache Kafka, Elasticsearch, and modern web technologies.
