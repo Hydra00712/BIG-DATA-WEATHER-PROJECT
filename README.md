@@ -26,7 +26,4 @@ This project demonstrates a complete enterprise-grade real-time data pipeline th
 - Elasticsearch: http://localhost:9200
 - HTML Dashboard: weather_dashboard.html
 
-## 📄 Documentation
 
-See the full documentation in [PROJECT_REPORT.md](PROJECT_REPORT.md)
-"@ | Out-File -FilePath "README.md" -Encoding utf8
