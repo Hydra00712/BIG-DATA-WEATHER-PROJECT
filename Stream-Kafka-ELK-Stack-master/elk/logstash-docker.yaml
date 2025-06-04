@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.10.2
+    container_name: logstash
+    restart: always
+    volumes:
+      - ./logstash/pipeline.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+    ports:
+      - "5044:5044"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+      - kafka
+
+networks:
+  elk:
+    external: true
+    name: elk_default
+
+  kafka:
+    external: true  
+    name: kafka_default

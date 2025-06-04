@@ -1,0 +1,19 @@
+{
+  "name": "elasticsearch-weather-sink",
+  "config": {
+    "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+    "tasks.max": "1",
+    "topics": "weather-enriched,weather-aggregated",
+    "connection.url": "http://elasticsearch:9200",
+    "type.name": "_doc",
+    "key.ignore": "true",
+    "schema.ignore": "true",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "transforms": "TimestampRouter",
+    "transforms.TimestampRouter.type": "org.apache.kafka.connect.transforms.TimestampRouter",
+    "transforms.TimestampRouter.topic.format": "weather-${timestamp}",
+    "transforms.TimestampRouter.timestamp.format": "yyyy-MM-dd"
+  }
+}
